@@ -45,6 +45,7 @@ body {
   a{
     margin-left: 10px;
     padding: 2px 10px;
+    background: #fff;
   }
 }
 </style>
