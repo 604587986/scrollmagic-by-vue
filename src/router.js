@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import section_wipes_natural from './components/section_wipes_natural'
 import section_wipes_manual from './components/section_wipes_manual'
 import svg_drawing from './components/svg_drawing'
 
@@ -16,7 +17,11 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect:'/section_wipes_manual'
+            redirect:'/section_wipes_natural'
+        },
+        {
+            path: '/section_wipes_natural',
+            component: section_wipes_natural
         },
         {
             path: '/section_wipes_manual',

@@ -26,34 +26,27 @@ import { isMobile } from "@/utils";
 export default {
 	mounted() {
 		// init controller
-		let controller = new ScrollMagic.Controller();
-		this.controller = controller;
+		let controller;
+		this.controller = controller = new ScrollMagic.Controller();
 		let $wang = document.querySelector("#wang");
 		let $yong = document.querySelector("#yong");
 
-		this.prepare($wang,$yong);
+		this.prepare($wang, $yong);
 
 		// build tween
 		let tween = new TimelineMax()
 			.add(
 				TweenMax.to($wang, 0.5, {
 					strokeDashoffset: 0,
-					ease: Linear.easeNone
+					ease: Linear.easeNone,
 				})
 			)
 			.add(
 				TweenMax.to($yong, 0.5, {
 					strokeDashoffset: 0,
-					ease: Linear.easeNone
+					ease: Linear.easeNone,
 				})
-			) 
-			.add(
-				TweenMax.to("path", 1, {
-					stroke: "#33629c",
-					ease: Linear.easeNone
-				}),
-				0
-			); // change color during the whole thing
+			)
 
 		// build scene
 		let scene = new ScrollMagic.Scene({
@@ -67,8 +60,6 @@ export default {
 	},
 	methods: {
 		prepare(...args) {
-			console.log(args);
-			
 			for (let i in args) {
 				const $el = args[i];
 				const lineLength = $el.getTotalLength();

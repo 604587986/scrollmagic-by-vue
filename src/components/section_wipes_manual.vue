@@ -36,8 +36,8 @@ export default {
 		msg: String
 	},
 	mounted() {
-		let controller = new ScrollMagic.Controller();
-		this.controller = controller;
+		let controller;
+		this.controller = controller = new ScrollMagic.Controller();
 		// define movement of panels
 		let wipeAnimation = new TimelineMax()
 			.fromTo(
