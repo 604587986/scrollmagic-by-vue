@@ -2,7 +2,7 @@
 	<div id="app">
 		<router-view></router-view>
 		<div class="fix">
-			<router-link v-for="item in this.routes" :key="item.path" :to="item.path">{{item.path}}</router-link>
+			<router-link v-for="(item,index) in routes" :key="item.path" :to="item.path">{{index+1}}</router-link>
 		</div>
 	</div>
 </template>
@@ -12,7 +12,7 @@ export default {
 	name: "app",
 	computed: {
 		routes() {
-			return this.$router.options.routes;
+			return this.$router.options.routes.filter(v=>v.path!=='/');
 		}
 	}
 };
@@ -36,16 +36,20 @@ body {
 	height: 100vh;
 	line-height: 100vh;
 	text-align: center;
-	font-size: 60px;
+	font-size: 50px;
+	overflow: hidden;
 }
 .fix {
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	display: flex;
+	flex-wrap: wrap;
 	a {
 		margin-left: 10px;
 		padding: 2px 10px;
 		background: #fff;
+		// flex: 1;
 	}
 }
 .spacer {

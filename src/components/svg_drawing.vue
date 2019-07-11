@@ -38,15 +38,15 @@ export default {
 			.add(
 				TweenMax.to($wang, 0.5, {
 					strokeDashoffset: 0,
-					ease: Linear.easeNone,
+					ease: Linear.easeNone
 				})
 			)
 			.add(
 				TweenMax.to($yong, 0.5, {
 					strokeDashoffset: 0,
-					ease: Linear.easeNone,
+					ease: Linear.easeNone
 				})
-			)
+			);
 
 		// build scene
 		let scene = new ScrollMagic.Scene({
@@ -55,8 +55,9 @@ export default {
 			tweenChanges: true
 		})
 			.setTween(tween)
-			.addIndicators() // add indicators (requires plugin)
 			.addTo(controller);
+
+		this.mixinScenes.push(scene);
 	},
 	methods: {
 		prepare(...args) {

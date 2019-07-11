@@ -25,7 +25,7 @@ export default {
 		this.controller = controller = new ScrollMagic.Controller({
 			globalSceneOptions: {
 				triggerHook: "onLeave",
-				duration: "200%" // this works just fine with duration 0 as well
+				duration: "100%" // this works just fine with duration 0 as well
 			}
 		});
 
@@ -34,11 +34,10 @@ export default {
 
 		// create scene for every slide
 		for (let i = 0; i < slides.length; i++) {
-			new ScrollMagic.Scene({
+			this.mixinScenes[i] = new ScrollMagic.Scene({
 				triggerElement: slides[i]
 			})
 				.setPin(slides[i], { pushFollowers: false })
-				.addIndicators() // add indicators (requires plugin)
 				.addTo(controller);
 		}
 	},
@@ -53,23 +52,23 @@ export default {
 	width: 100%;
 	.panel {
 		height: 100%;
-        width: 100%;
-        color: #fff;
-        text-align: center;
-        font-size: 50px;
-        line-height: 100vh;
-        &.blue{
-            background: blue;
-        }
-        &.turqoise{
-            background: #38ced7;
-        }
-        &.green{
-            background: green;
-        }
-        &.bordeaux{
-            background: #953543;
-        }
+		width: 100%;
+		color: #fff;
+		text-align: center;
+		font-size: 50px;
+		line-height: 100vh;
+		&.blue {
+			background: blue;
+		}
+		&.turqoise {
+			background: #38ced7;
+		}
+		&.green {
+			background: green;
+		}
+		&.bordeaux {
+			background: #953543;
+		}
 	}
 }
 </style>

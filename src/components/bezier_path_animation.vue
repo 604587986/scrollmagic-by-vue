@@ -71,12 +71,13 @@ export default {
 
 		let scene = new ScrollMagic.Scene({
 			triggerElement: "#trigger",
-			duration: 900,
+			duration: 900
 		})
 			.setPin("#target")
 			.setTween(tween)
-			.addIndicators() // add indicators (requires plugin)
 			.addTo(controller);
+
+		this.mixinScenes.push(scene);
 	},
 	destroyed() {
 		this.controller.destroy();

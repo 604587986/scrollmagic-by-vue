@@ -72,15 +72,16 @@ export default {
 			);
 
 		// create scene to pin and link animation
-		new ScrollMagic.Scene({
+		let scene = new ScrollMagic.Scene({
 			triggerElement: "#pinContainer",
 			triggerHook: "onLeave",
 			duration: "400%"
 		})
 			.setPin("#pinContainer")
 			.setTween(wipeAnimation)
-			.addIndicators() // add indicators (requires plugin)
 			.addTo(controller);
+
+			this.mixinScenes.push(scene)
 	},
 	destroyed() {
 		this.controller.destroy();

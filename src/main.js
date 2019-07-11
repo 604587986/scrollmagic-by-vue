@@ -13,6 +13,9 @@ window.ScrollMagic = ScrollMagic;
 import "imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js";
 
+import mixin from '@/utils/mixin'
+Vue.mixin(mixin)
+
 new Vue({
   render: h => h(App),
   router
